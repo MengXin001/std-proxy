@@ -74,7 +74,7 @@ def worker(id, jobs, results, addr):
 
 def main():
     parser = ArgumentParser(
-        description="Test if payloads in FILE(s) are affected by the dynamic blocking. With no FILE, read standard input. By default, print results to stdout and log to stderr."
+        description="Test if payloads in FILE(s) are affected by the dynamic blocking."
     )
     parser.add_argument(
         "-p",
@@ -94,7 +94,7 @@ def main():
     parser.add_argument(
         "-repeat",
         type=int,
-        default=25,
+        default=REPEAT,
         help="repeatedly make up to this number of connections to each ip:port.",
     )
     parser.add_argument(
@@ -136,7 +136,9 @@ def main():
     if args.log:
         logging.basicConfig(filename=args.log, level=logging.DEBUG)
 
-    output_file = sys.stdout if args.out == "" else open(args.out, "w")
+    output_file = (
+        sys.stdout if args.out == "" else open(args.out, "w", encoding="utf-8")
+    )
     writer = csv.writer(output_file)
     writer.writerow(
         [

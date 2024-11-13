@@ -1,4 +1,4 @@
-from sink_server import sink
+# from sink_server import sink
 import utils
 
 if __name__ == "__main__":
