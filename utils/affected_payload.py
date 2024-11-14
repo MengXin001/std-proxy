@@ -51,7 +51,7 @@ def worker(id, jobs, results, addr):
         affected = "unknown"
         if count_success == 0:
             affected = "unknown"
-        elif consecutive_timeout == MAX_NUM_TIMEOUT:
+        elif consecutive_timeout >= MAX_NUM_TIMEOUT:
             affected = "true"
         elif count_success == REPEAT:
             affected = "false"
