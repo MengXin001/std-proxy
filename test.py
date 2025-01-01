@@ -3,4 +3,4 @@ import utils
 
 if __name__ == "__main__":
     # sink.main()
-    utils.affected_payload.main()
+    utils.affected_dns.main()
